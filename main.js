@@ -22,6 +22,8 @@ let br1 = 0;
 let br2 = 0;
 let br3 = 0;
 let seconds = 20;
+let closse = document.querySelector('#closse');
+let pomPublike = document.querySelector('#pomPublike');
 
 window.addEventListener('load', run);
 
@@ -43,7 +45,7 @@ window.addEventListener('load', run);
               sound.correctAnswerEnd();
               ponoviBtn.style.display = 'none';
               idOpcije.innerHTML = '';
-              run()
+              run();
 
             if (!quiz.end(quiz.milioner)) {
                 current = quiz.getQuestion(quiz.milioner);
@@ -75,9 +77,11 @@ window.addEventListener('load', run);
                       }
                   }
                 },100)
+
               for (let i = 0; i < optionHolders.length; i++) {
                     optionHolders[i].addEventListener('click',clickForAnswer);
                   };
+
               function clickForAnswer() {
                         brojac++;
                         this.style.background = 'orange';
@@ -93,6 +97,7 @@ window.addEventListener('load', run);
                             bingo[i].style.background = '#000d33';
                             bingo[i].style.color = 'gold';
                         }
+
                         for (var i = 0; i < zaSum.length; i++) {
                           zaSum[i].style.color = 'white';
                         }
@@ -127,7 +132,6 @@ window.addEventListener('load', run);
                                 postaviPitanje.style.display = 'none';
                                 zagarantovanaSuma();
                                 repeat();
-
                         }
                         points.innerHTML = quiz.score;
                       }
@@ -163,6 +167,7 @@ window.addEventListener('load', run);
           }
         };
   };
+
   function repeat() {
     polaPolaBtn.children[0].setAttribute('src','sl/img1.png');
     pomocPrijateljaBtn.children[0].setAttribute('src','sl/img2.png');
@@ -178,6 +183,7 @@ window.addEventListener('load', run);
     quiz.index = 0;
     quiz.score = 0;
     quiz.error = 0;
+
     for (let i = 0; i < bingo.length; i++) {
       bingo[i].style.background = '#000d33';
       bingo[i].style.color = 'gold';
@@ -190,6 +196,7 @@ window.addEventListener('load', run);
     }
     postaviPitanje.addEventListener('click', askQuestions);
   };
+
   function odustani() {
     sound.playQuestionEnd();
     sound.final();
@@ -201,6 +208,7 @@ window.addEventListener('load', run);
     ukupnoPoena.style.display = 'block';
     repeat();
   };
+
   function clearList() {
     postaviPitanje.style.display = 'block';
     osvojenaSuma.style.display = 'none';
@@ -229,6 +237,7 @@ window.addEventListener('load', run);
     arr[0].innerHTML = '';
     arr[1].innerHTML = '';
   };
+
   function pomocPrijatelja() {
     sound.final();
     br2++;
@@ -266,6 +275,7 @@ window.addEventListener('load', run);
       seconds = 20;
     }
   };
+
 function pomocPublike() {
   sound.playQuestionEnd();
   sound.final();
@@ -290,7 +300,7 @@ function pomocPublike() {
         }
       }
   },10000)
-    document.querySelector('#closse').onclick = function () {
-      document.querySelector('#pomPublike').style.display = 'none';
+    closse.onclick = function () {
+      pomPublike.style.display = 'none';
     }
 };
