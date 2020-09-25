@@ -22,6 +22,8 @@ let br1 = 0;
 let br2 = 0;
 let br3 = 0;
 let seconds = 20;
+let closse = document.querySelector('#closse');
+let pomPublike = document.querySelector('#pomPublike');
 
 window.addEventListener('load', run);
 
@@ -298,7 +300,7 @@ function pomocPublike() {
         }
       }
   },10000)
-    document.querySelector('#closse').onclick = function () {
-      document.querySelector('#pomPublike').style.display = 'none';
+      closse.onclick = function () {
+      pomPublike.style.display = 'none';
     }
 };
